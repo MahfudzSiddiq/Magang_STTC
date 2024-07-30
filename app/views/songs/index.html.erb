@@ -1,0 +1,44 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <% content_for :title, "Songs" %>
+
+  <div class="flex justify-between items-center mb-5">
+    <h1 class="font-bold text-4xl">Songs</h1>
+    <%= link_to "New song", new_song_path, class: "rounded-lg py-3 px-5 bg-orange-500 text-white block font-medium" %>
+  </div>
+
+  <div id="songs" class="min-w-full mt-5">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead>
+        <tr>
+        <th class="py-2 px-4 bg-orange-500 text-left">Title</th>
+        <th class="py-2 px-4 bg-orange-500 text-left">Artist</th>
+        <th class="py-2 px-4 bg-orange-500 text-left">Release</th>
+        <th class="py-2 px-4 bg-orange-500 text-left">Composer</th>
+        <th class="py-2 px-4 bg-orange-500 text-left">Producer</th>
+
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-green-200">
+        <% @songs.each do |song| %>
+          <tr class="cursor-pointer hover:bg-orange-500" onclick="window.location='<%= song_path(song) %>'">
+            <td class="border-t py-2 px-1"><%= song.title %></td>
+            <td class="border-t py-2 px-1">
+            <% song.artists.each do|artist| %>
+              <%= artist.name %>
+              <% end %>
+              </td>
+            <td class="border-t py-3 px-1"><%= song.release %></td>
+            <td class="border-t py-3 px-1"><%= song.composer %></td>
+            <td class="border-t py-3 px-1"><%= song.producer %></td>
+
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
