@@ -2,27 +2,93 @@
 <html>
 <head>
   <title>SpotyPi</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap">
   <style>
-    .box {
-      
-      width: 800px; /* Ubah ukuran kotak di sini */
-      height: 300px; /* Ubah ukuran kotak di sini */
-      border: 0px solid #ccc;
-      padding: 20px;
-      margin: 0 auto; /* Kotak akan berada di tengah */
-      text-align: center; /* Tulisan di tengah kotak */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f9f9f9;
     }
-    .bold {
-      font-weight: bold; /* Tulisan dijadikan tebal */
-      color: blue; /* Warna tulisan diubah menjadi biru */
-      font-size: 24px; /* Ukuran tulisan diperbesar */
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .header p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    
+    .box {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .box h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .box p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    
+    .box span {
+      font-size: 18px;
+      color: #666;
+    }
+    
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      clear: both;
+    }
+    
+    .footer p {
+      font-size: 14px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
-<body class="bg-[url('baru.jpg')] bg-center bg-[length:130%_auto] bg-no-repeat">
-  <h1> </h1>
-  <div class="box bg-transparent">
-  <p><strong class="text-3xl font-bold sm:text-4xl mb-4 bg-gradient-to-r from-pink-500 to-violet-500 ">Selamat Datang di [SpotyPi]</strong></p> <p><strong class="text-3xl font-bold sm:text-4xl mb-4 bg-gradient-to-r from-pink-500 to-violet-500 ">Nikmati Musik Sesukamu di SpotyPi</strong></p> <br> <p><strong class="text-white m">Spotypi adalah platform musik daring yang menyediakan akses ke berbagai jenis musik dari berbagai genre. Di Spotypi, pengguna dapat menemukan lagu-lagu terbaru, membuat playlist pribadi, menelusuri artis favorit, dan menikmati konten musik yang beragam. Dengan antarmuka yang ramah pengguna, Spotypi dirancang untuk memudahkan pengguna menemukan dan menikmati musik sesuai dengan preferensi mereka.</strong</p>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>SpotyPi</h1>
+      <p>Yesterday's legend, Tomorrow's revolution</p>
+    </div>
+    <div class="box">
+      <h2>Selamat Datang di SpotyPi</h2>
+      <p>Spotypi adalah platform musik daring yang menyediakan akses ke berbagai jenis musik dari berbagai genre. Di Spotypi, pengguna dapat menemukan lagu-lagu terbaru, membuat playlist pribadi, menelusuri artis favorit, dan menikmati konten musik yang beragam.</p>
+      <span>Dengan antarmuka yang ramah pengguna, Spotypi dirancang untuk memudahkan pengguna menemukan dan menikmati musik sesuai dengan preferensi mereka.</span>
+    </div>
+    <div class="box">
+      <h2>Music For All</h2>
+      <p>DumyMusic is the source for royalty free music. Elevate your projects with our diverse collection. Simplify your licensing process and unleash your creativity. Join us today!</p>
+    </div>
+    <div class="footer">
+      <p>&copy; 2024 SpotyPi. All rights reserved.</p>
+    </div>
   </div>
 </body>
 </html>

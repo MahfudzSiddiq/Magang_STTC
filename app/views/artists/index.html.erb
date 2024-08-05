@@ -1,34 +1,25 @@
-<div class="w-full">
+<div class="w-full bg-gray-100 p-4">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <% content_for :title, "Artists" %>
+  <% content_for :title, "Artis" %>
 
   <div class="flex justify-between items-center mb-5">
-    <h1 class="font-bold text-4xl">Artists</h1>
-    <%= link_to "New artist", new_artist_path, class: "rounded-lg py-3 px-5 bg-orange-500 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl text-black">Artis</h1>
+    <%= link_to "Artis Baru", new_artist_path, class: "rounded-lg py-3 px-5 bg-sky-500 text-white block font-medium" %>
   </div>
 
-  <table class="min-w-full bg-white">
-    <thead>
-      <tr>
-        <th class="py-2 px-8 bg-orange-500 text-left">Name</th>
-        <th class="py-2 px-8 bg-orange-500 text-left">Year</th>
-        <th class="py-2 px-8 bg-orange-500 text-left">Nationality</th>
-        <th class="py-2 px-8 bg-orange-500 text-left">Biography</th>
-      </tr>
-    </thead>
-    <tbody id="artists">
-      <% @artists.each do |artist| %>
-        <tr class="cursor-pointer hover:bg-orange-500" onclick="window.location='<%= artist_path(artist) %>'">
-          <td class="border-t py-2 px-1"><%= artist.name %></td>
-          <td class="border-t py-2 px-1"><%= artist.year %></td>
-          <td class="border-t py-2 px-1"><%= artist.nationality %></td>
-          <td class="border-t py-2 px-1"><%= artist.biography %></td>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+    <% @artists.each do |artist| %>
+      <div class="bg-white rounded-lg shadow-md p-4 cursor-pointer hover:bg-sky-500" onclick="window.location='<%= artist_path(artist) %>'">
+        <div class="flex justify-center mb-4">
+          <%= image_tag(artist.image, class: "w-48 h-48 rounded-full object-cover") if artist.image.present? %>
+        </div>
+        <h2 class="font-bold text-2xl mb-2 text-black"><%= artist.name %></h2>
+        <p class="text-lg mb-2"><%= artist.year %></p>
+        <p class="text-lg mb-2"><%= artist.nationality %></p>
+      </div>
+    <% end %>
+  </div>
 </div>

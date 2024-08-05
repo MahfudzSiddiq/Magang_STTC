@@ -1,44 +1,29 @@
-<div class="w-full">
+
+<div class="w-full bg-gray-100 p-4">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <% content_for :title, "Songs" %>
+  <% content_for :title, "Song" %>
 
   <div class="flex justify-between items-center mb-5">
-    <h1 class="font-bold text-4xl">Songs</h1>
-    <%= link_to "New song", new_song_path, class: "rounded-lg py-3 px-5 bg-orange-500 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl text-black">Song</h1>
+    <%= link_to "Song Baru", new_song_path, class: "rounded-lg py-3 px-5 bg-sky-500 text-white block font-medium" %>
   </div>
 
-  <div id="songs" class="min-w-full mt-5">
-    <table class="min-w-full divide-y divide-gray-200">
-      <thead>
-        <tr>
-        <th class="py-2 px-4 bg-orange-500 text-left">Title</th>
-        <th class="py-2 px-4 bg-orange-500 text-left">Artist</th>
-        <th class="py-2 px-4 bg-orange-500 text-left">Release</th>
-        <th class="py-2 px-4 bg-orange-500 text-left">Composer</th>
-        <th class="py-2 px-4 bg-orange-500 text-left">Producer</th>
-
-        </tr>
-      </thead>
-      <tbody class="bg-white divide-y divide-green-200">
-        <% @songs.each do |song| %>
-          <tr class="cursor-pointer hover:bg-orange-500" onclick="window.location='<%= song_path(song) %>'">
-            <td class="border-t py-2 px-1"><%= song.title %></td>
-            <td class="border-t py-2 px-1">
-            <% song.artists.each do|artist| %>
-              <%= artist.name %>
-              <% end %>
-              </td>
-            <td class="border-t py-3 px-1"><%= song.release %></td>
-            <td class="border-t py-3 px-1"><%= song.composer %></td>
-            <td class="border-t py-3 px-1"><%= song.producer %></td>
-
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+    <% @songs.each do |song| %>
+      <div class="bg-white rounded-lg shadow-md p-4 cursor-pointer hover:bg-sky-500" onclick="window.location='<%= song_path(song) %>'">
+        <div class="flex justify-center mb-4">
+          <%= image_tag(song.image, class: "w-48 h-48 rounded-full object-cover") if song.image.present? %>
+        </div>
+        <h2 class="font-bold text-2xl mb-2 text-black"><%= song.title %></h2>
+        <p class="text-lg mb-2"><% song.artists.each do|artist| %>
+    <%= artist.name %>
+    <% end %></p>
+        <p class="text-lg mb-2"><%= song.release %></p>
+      </div>
+    <% end %>
   </div>
 </div>
+

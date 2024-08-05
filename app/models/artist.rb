@@ -1,4 +1,7 @@
 class Artist < ApplicationRecord
+    
+    has_one_attached :image
+
     has_rich_text :biography
 
     has_many :artist_song, dependent: :destroy

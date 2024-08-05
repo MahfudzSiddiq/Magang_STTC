@@ -1,42 +1,25 @@
-<div class="w-full">
+<div class="w-full bg-gray-100 p-4">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <% content_for :title, "Albums" %>
+  <% content_for :title, "Album" %>
 
   <div class="flex justify-between items-center mb-5">
-    <h1 class="font-bold text-4xl">Albums</h1>
-    <%= link_to "New album", new_album_path, class: "rounded-lg py-3 px-5 bg-orange-500 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl text-black">Song</h1>
+    <%= link_to "Album Baru", new_album_path, class: "rounded-lg py-3 px-5 bg-sky-500 text-white block font-medium" %>
   </div>
 
-  <table class="min-w-full mt-5">
-    <thead>
-      <tr>
-        <th class="px-4 py-2 bg-orange-500 text-left">Title</th>
-        <th class="px-4 py-2 bg-orange-500 text-left">Song</th>
-        <th class="px-4 py-2 bg-orange-500 text-left">About</th>
-        <th class="px-4 py-2 bg-orange-500 text-left">Release</th>
-        <th class="px-4 py-2 bg-orange-500 text-left">Credit</th>
-      </tr>
-    </thead>
-    <tbody id="albums">
-      <% @albums.each do |album| %>
-        <tr class="cursor-pointer hover:bg-orange-500" onclick="window.location='<%= album_path(album) %>'">
-          <td class="border px-4 py-2"><%= album.title %></td>
-          <td class="border px-4 py-2">
-            <% album.songs.each do|song| %>
-            <%= song.title %>
-           <% end %>
-           </td>
-          <td class="border px-4 py-2"><%= album.about %></td>
-          <td class="border px-4 py-2"><%= album.release %></td>
-          <td class="border px-4 py-2"><%= album.credit %></td>
-
-           
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+    <% @albums.each do |album| %>
+      <div class="bg-white rounded-lg shadow-md p-4 cursor-pointer hover:bg-sky-500" onclick="window.location='<%= album_path(album) %>'">
+        <div class="flex justify-center mb-4">
+          <%= image_tag(album.image, class: "w-48 h-48 rounded-full object-cover") if album.image.present? %>
+        </div>
+        <h2 class="font-bold text-2xl mb-2 text-black"><%= album.title %></h2>
+        <p class="text-lg mb-2"><%= album.release %></p>
+        <p class="text-lg mb-2"><%= album.credit %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
